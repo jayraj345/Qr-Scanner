@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:qr_scrnner/qr_screen/qr_screen.dart';
 import 'package:qr_scrnner/scanner_history.dart';
 import 'package:qr_scrnner/scanner_screen.dart';
+import 'package:qr_scrnner/setting_screen.dart';
 
 enum SelectedTab { home, qr, hostory, setting }
 
@@ -16,7 +17,7 @@ class BottomBarController extends GetxController {
     ScannerScreen(),
     QRGeneratorScreen(),
     ScanHistory(),
-    Container(),
+    SettingScreen(),
   ];
 
   void handleIndexChanged(int i) {

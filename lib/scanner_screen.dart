@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart'
     as qr;
@@ -168,20 +169,16 @@ class _ScannerScreenState extends State<ScannerScreen> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: 10,
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  height: 150,
-                  width: 150,
-                  child: image != null
-                      ? Image.file(File(image?.path ?? ""))
-                      : _buildQrView(context),
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              Container(
+                height: Get.size.height * 0.6,
+                width: Get.size.width,
+                child: image != null
+                    ? Image.file(File(image?.path ?? ""))
+                    : _buildQrView(context),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
                 ),
               ),
               SizedBox(
@@ -267,7 +264,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
                         width: 8,
                       ),
                       Text(
-                        'Scan ',
+                        'Scan',
                         style: TextStyle(
                           fontFamily: FontFamily.satoshiMedium,
                           color: Color(0xFF575799),
@@ -295,7 +292,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
   }
 
   Widget _buildQrView(BuildContext context) {
-    double scanArea = 150.0;
+    double scanArea = Get.size.height * 0.4;
 
     return QRView(
       key: qrKey,
